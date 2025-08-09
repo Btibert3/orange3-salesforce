@@ -57,46 +57,12 @@ pip install -e .
 - requests
 - pandas
 
-## Development
-
-### Project Structure
-```
-orange3-salesforce/
-├── setup.py                 # Package installation
-├── requirements.txt         # Dependencies
-├── orangecontrib/          # Orange3 convention
-│   └── salesforce/         # Our extension
-│       ├── widgets/        # Widget definitions
-│       │   ├── auth.py     # Authentication widget
-│       │   └── query.py    # Query widget
-│       └── icons/          # Widget icons
-└── README.md
-```
-
-### Adding New Widgets
-1. Create new widget class in `orangecontrib/salesforce/widgets/`
-2. Inherit from appropriate Orange3 widget base class
-3. Register in `orangecontrib/salesforce/widgets/__init__.py`
-4. Add icon to `icons/` directory
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
 
 ## License
 
 MIT License - see LICENSE file for details
 
-## Support
 
-For issues and questions:
-1. Check the Orange3 documentation
-2. Review simple-salesforce documentation
-3. Open an issue on GitHub
 
 
 ## TO BE DELETED
