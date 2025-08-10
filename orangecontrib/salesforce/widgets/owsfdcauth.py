@@ -12,7 +12,10 @@ from Orange.data import Table
 from Orange.widgets import gui, settings
 from Orange.widgets.utils.signals import Output
 from Orange.widgets.widget import OWWidget, Msg
-from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox
+from PyQt5.QtWidgets import (
+    QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, 
+    QPushButton, QMessageBox
+)
 from PyQt5.QtCore import Qt
 
 try:
@@ -141,7 +144,7 @@ class OWSalesforceAuth(OWWidget):
         domain_label.setStyleSheet("font-weight: bold; color: #2c3e50;")
         self.domain_combo = gui.comboBox(
             self.username_password_group, self, "domain", 
-            items=["Production (login)", "Sandbox (test)"], 
+            items=["Production (login.salesforce.com)", "Sandbox (test.salesforce.com)"], 
             label=""
         )
         self.domain_combo.setMinimumHeight(35)
@@ -314,10 +317,13 @@ class OWSalesforceAuth(OWWidget):
                 if self.security_token:
                     full_password += self.security_token
                 
+                # Map domain selection to actual Salesforce URLs
+                domain_url = "login.salesforce.com" if self.domain == 0 else "test.salesforce.com"
+                
                 self.connection = Salesforce(
                     username=self.username,
                     password=full_password,
-                    domain=self.domain
+                    domain=domain_url
                 )
             else:  # Access Token
                 if not self.access_token or not self.instance_url:
@@ -334,7 +340,7 @@ class OWSalesforceAuth(OWWidget):
             
             # Update UI
             self.status_label.setText("Connected successfully")
-            self.status_label.setStyleSheet("color: green;")
+            self.status_label.setStyleSheet("color: #27ae60; font-weight: bold; padding: 15px; background-color: #d5f4e6; border: 1px solid #a9dfbf; border-radius: 6px; font-size: 14px;")
             self.connect_btn.setEnabled(False)
             self.disconnect_btn.setEnabled(True)
             
@@ -349,7 +355,7 @@ class OWSalesforceAuth(OWWidget):
         """Disconnect from Salesforce."""
         self.connection = None
         self.status_label.setText("Not connected")
-        self.status_label.setStyleSheet("color: red;")
+        self.status_label.setStyleSheet("color: #e74c3c; font-weight: bold; padding: 15px; background-color: #fdf2f2; border: 1px solid #f5c6cb; border-radius: 6px; font-size: 14px;")
         self.connect_btn.setEnabled(True)
         self.disconnect_btn.setEnabled(False)
         
