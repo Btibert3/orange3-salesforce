@@ -1,0 +1,2 @@
+orange3>=3.34.0
+simple-salesforce>=1.12.0

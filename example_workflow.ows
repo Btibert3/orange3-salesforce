@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema name="Salesforce Example Workflow" version="1.0">
+  <nodes>
+    <node id="0" title="Salesforce Authentication" position="(100, 100)" project_name="orangecontrib.salesforce.widgets" widget_name="OWSalesforceAuth" />
+    <node id="1" title="Salesforce Contacts" position="(300, 100)" project_name="orangecontrib.salesforce.widgets" widget_name="OWSalesforceContacts" />
+    <node id="2" title="Data Table" position="(500, 100)" project_name="Orange.widgets.data" widget_name="OWDataTable" />
+  </nodes>
+  <links>
+    <link id="0" from_node="0" from_channel="connection" to_node="1" to_channel="connection" />
+    <link id="1" from_node="1" from_channel="data" to_node="2" to_channel="data" />
+  </links>
+  <annotations />
+  <node_properties>
+    <properties node_id="0" />
+    <properties node_id="1" />
+    <properties node_id="2" />
+  </node_properties>
+</schema>
