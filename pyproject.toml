@@ -8,7 +8,7 @@ version = "0.0.3"
 description = "Read and manage data in Salesforce"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "CC-BY-NC-SA-4.0" }
+license = "CC-BY-NC-SA-4.0"
 authors = [
     { name = "Brock Tibert", email = "brocktibert@gmail.com" },
 ]
@@ -24,8 +24,6 @@ dependencies = [
     "simple-salesforce"
 ]
 
-[license]
-license = "CC-BY-NC-SA-4.0"
 license-files = ["LICENSE"]
 
 [project.optional-dependencies]
