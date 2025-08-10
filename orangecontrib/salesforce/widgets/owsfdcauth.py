@@ -44,9 +44,10 @@ class OWSalesforceAuth(OWWidget):
     username = settings.Setting("")
     password = settings.Setting("")
     security_token = settings.Setting("")
-    domain = settings.Setting("login")  # login or test
+    domain = settings.Setting(0)  # 0 for production, 1 for sandbox
     instance_url = settings.Setting("")
     access_token = settings.Setting("")
+    auth_method = settings.Setting(0)  # 0 for username/password, 1 for access token
     
     def __init__(self):
         super().__init__()
@@ -267,10 +268,8 @@ class OWSalesforceAuth(OWWidget):
         
         main_layout.addLayout(button_layout)
         
-        # Add main layout to control area with proper margins
-        control_layout = self.controlArea.layout()
-        control_layout.setContentsMargins(20, 20, 20, 20)
-        control_layout.addLayout(main_layout)
+        # Set margins for the control area
+        self.controlArea.layout().setContentsMargins(20, 20, 20, 20)
         
         # Set initial state
         self._on_auth_method_changed()
