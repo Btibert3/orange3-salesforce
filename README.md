@@ -11,15 +11,6 @@ This allows users to interact and manage data in Salesforce directly within Oran
 4. Search for "orange3-salesforce"
 5. Click Install
 
-### Option 2: Install from Source
-```bash
-git clone https://github.com/yourusername/orange3-salesforce.git
-cd orange3-salesforce
-pip install -e .
-```
-
-**Note**: This extension uses the `orangeaddons` namespace to avoid conflicts with existing Orange3 packages.
-
 ## Features
 
 ### Current (MVP)
@@ -41,21 +32,13 @@ pip install -e .
 2. **Query**: Use the Salesforce Query widget to retrieve data
 3. **Analyze**: Use Orange3's built-in data analysis tools on your Salesforce data
 
-### Example Workflow
-1. Drag "Salesforce Authentication" widget to canvas
-2. Enter your Salesforce credentials and click "Connect"
-3. Drag "Salesforce Query" widget to canvas
-4. Connect the authentication output to the query input
-5. Select an object (Contact/Opportunity) and execute query
-6. View results in Orange3's data table
+
 
 ## Requirements
 
 - Orange3
-- Python 3.7+
-- simple-salesforce
-- requests
-- pandas
+- Python 3.11+
+
 
 
 ## License
@@ -64,15 +47,18 @@ MIT License - see LICENSE file for details
 
 
 
-
 ## TO BE DELETED
 
 Local testing
 
 ```
-/Applications/Orange.app/Contents/MacOS/PythonApp -m pip install docopt
+uv build 
+uv publish
 ```
 
+Above assumes to environment variables form pypi
 
+UV_PUBLISH_USERNAME which is a token
+UV_PUBLISH_PASSWORD which is the PYPI token from the web
 
 
