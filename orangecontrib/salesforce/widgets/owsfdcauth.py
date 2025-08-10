@@ -87,7 +87,7 @@ class OWSalesforceAuth(OWWidget):
         main_layout.addWidget(auth_group)
         
         # Username/Password section
-        self.username_password_group = gui.groupBox(
+        self.username_password_group = gui.widgetBox(
             self.controlArea, "Login Credentials"
         )
         up_layout = QVBoxLayout()
@@ -157,7 +157,7 @@ class OWSalesforceAuth(OWWidget):
         main_layout.addWidget(self.username_password_group)
         
         # Access Token section
-        self.access_token_group = gui.groupBox(
+        self.access_token_group = gui.widgetBox(
             self.controlArea, "API Access"
         )
         at_layout = QVBoxLayout()
@@ -196,7 +196,7 @@ class OWSalesforceAuth(OWWidget):
         main_layout.addWidget(self.access_token_group)
         
         # Connection status
-        status_group = gui.groupBox(
+        status_group = gui.widgetBox(
             self.controlArea, "Connection Status"
         )
         status_layout = QVBoxLayout()

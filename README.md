@@ -1,5 +1,7 @@
 # Orange3-Salesforce
 
+> THIS IS NOT WORKING YET.  The library can be installed but I am working through bugs and currently fighting the flow to rapidly test locally.
+
 This allows users to interact and manage data in Salesforce directly within Orange3. This is only possible because of the fantastic library [simple-salesforce](https://github.com/simple-salesforce/simple-salesforce).
 
 ## Installation
